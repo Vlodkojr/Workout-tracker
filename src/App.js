@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from "./components/Home";
+import { NewPlan } from "./components/NewPlan";
+import { ListOfPlans } from "./components/ListOfPlans";
+import { NavBar } from './components/NavBar';
+import { EditPlan } from './components/EditPlan';
 
 function App() {
+  const [plans, setPlans] = useState(
+    JSON.parse(localStorage.getItem('plans')) || []
+  )
+
+  const [editPlan, setEditPlan] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/new-plan" element={<NewPlan plans={plans} setPlans={setPlans} />} />
+          <Route path="/list-of-plans" element={<ListOfPlans plans={plans} setPlans={setPlans} setEditPlan={setEditPlan} />} />
+          <Route path="/edit-plan" element={<EditPlan editPlan={editPlan}/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
