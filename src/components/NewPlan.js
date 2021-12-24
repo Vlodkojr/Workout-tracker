@@ -15,24 +15,26 @@ export const NewPlan = ({ plans, setPlans, editPlan }) => {
   const classes = useStyles();
 
   useEffect(() => {
-    localStorage.setItem('plans', JSON.stringify(plans))
+    if (plans) {
+      localStorage.setItem('plans', JSON.stringify(plans))
+    }
   }, [plans]);
 
   const newPlan = () => {
     if (exercises !== '') {
-      if(editPlan){
+      if (editPlan) {
         editPlan.date = date;
         editPlan.weight = weight;
-        editPlan.exercises = exercises;        
+        editPlan.exercises = exercises;
       } else {
         const newPlan = {
           id: Date.now(),
           date: date,
           weight: weight,
           exercises: exercises
-        };  
+        };
         setPlans((plans) => [...plans, newPlan]);
-      }      
+      }
       setDate(null);
       setWeight('');
       setExercises('');

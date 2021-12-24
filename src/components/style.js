@@ -13,10 +13,10 @@ export const useStyles = makeStyles((theme) => ({
   items: {
     margin: "10px",
     padding: "1em",
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "#f5f5f5 !Important"
   },
   list: {
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#f5f5f5 !Important",
     margin: "10px",
   },
   heading: {
