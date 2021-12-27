@@ -23,5 +23,14 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     margin: "2em"
+  },
+  edit: {
+    display: "flex",
+    justifyContent: "center"
+  },
+  listContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
   }
 }));

@@ -32,7 +32,7 @@ export const ListOfPlans = ({ plans, setPlans, setEditPlan }) => {
             key={index}>
             <Card className={classes.list}>
               <CardContent>
-                <Typography style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <Typography className={classes.listContainer}>
                   <div>
                     <div>{`Date: ${plan.date}`}</div>
                     <div>{`Weight: ${plan.weight}`}</div>
