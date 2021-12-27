@@ -103,12 +103,12 @@ export const NewPlan = ({ plans, setPlans, editPlan }) => {
             <DatePicker
               label="Training day"
               id="date"
-              name="date"
+              name="date"              
               value={values.date}
               onChange={(newValue) => {
                 setFieldValue('date', newValue);
-              }}
-              onBlur={handleBlur}
+              }}           
+              onBlur={handleBlur}   
               renderInput={(params) => (
                 <TextField
                   {...params}
